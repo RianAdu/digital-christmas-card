@@ -15,7 +15,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.sticky-imgage {
+.hero-bg {
   position: absolute;
   top: 0;
   left: 0;
@@ -23,11 +23,7 @@ body {
   height: auto;
 }
 
-footer img {
-  width: 100%;
-}
-
-header img {
+.header__banner {
   display: block;
   margin: 40px auto 0px auto;
   width: 100%;
@@ -35,11 +31,15 @@ header img {
   height: auto;
 }
 
-header h1 {
+.header__h1 {
   font-size: 30px;
   line-height: 40px;
   margin-top: 20px;
   margin-bottom: 40px;
+}
+
+.footer__snow {
+  width: 100%;
 }
 
 .face {
