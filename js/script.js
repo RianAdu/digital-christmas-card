@@ -1,7 +1,7 @@
 $(function() {
 
 	/**** Global variables *****/
-	var assetPath = 'sound_files/';
+	var assetPath = 'soundfiles/';
 	var sounds = [];
 	var isPlaying = null;
 
