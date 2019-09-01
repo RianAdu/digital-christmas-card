@@ -44,14 +44,12 @@
 	}
 
 	function getTeamId() {
-		var url = window.location.href;
+		const url = window.location.href;
 		if (url.indexOf('?') === -1) {
 			return false;
 		} else {
-			var tmp = url.split('?');
-			var tmp2 = tmp[1].split('=');
-			var team = tmp2[1].split('&');
-			return team[0];
+			const team = url.split('?')[1].split('=')[1].split('&')[0];
+			return team;
 		}
 	};
 
