@@ -1,0 +1,119 @@
+// *********** Variables *********
+$white: #ffffff;
+$winter-blue: #62afcf;
+$label-blue: #1c6a8e;
+
+html {
+  position: relative;
+  min-height: 100%;
+  background: $winter-blue;
+}
+
+body {
+  font-family: 'Merriweather Sans', sans-serif;
+  background: $white;
+  font-size: 16px;
+  background: $winter-blue;
+  color: $white;
+  text-rendering: optimizelegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.nobreak {
+  white-space: nowrap;
+}
+
+.sticky-imgage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+}
+
+footer img {
+  width: 100%;
+}
+
+header img {
+  display: block;
+  margin: 40px auto 0px auto;
+  width: 100%;
+  max-width: 655px;
+  height: auto;
+}
+
+header h1 {
+  font-size: 30px;
+  line-height: 40px;
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+.face {
+  display: block;
+  position: relative;
+  width: 137px;
+  height: 165px;
+  margin: 10px auto -35px auto;
+  z-index: 1;
+  -webkit-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+
+}
+
+.face:hover {
+  -webkit-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+.face-name {
+  opacity: 0;
+  position: relative;
+  display: block;
+  font-size: 14px;
+  background: $label-blue;
+  padding: 8px;
+  width: 130px;
+  margin: auto;
+  border-radius: 4px;
+  z-index: 2;
+  -webkit-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+
+.face-name.show {
+  opacity: 1;
+}
+
+@media(max-width:768px) {
+  header h1 {
+    font-size: 30px;
+    margin-top: 30px;
+  }
+}
+
+@media(max-width: 650px) {
+  header h1 {
+    font-size: 27px;
+    line-height: 35px;
+  }
+}
+
+@media(max-width:480px) {
+  .col-custom-small {
+    width: 50%;
+  }
+
+  header h1 {
+    font-size: 21px;
+    line-height: 26px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+}
