@@ -1,25 +1,24 @@
-$(function() {
+(function IIFE() {
 
 	/**** Global variables *****/
-	var assetPath = 'soundfiles/';
-	var sounds = [];
-	var isPlaying = null;
+	const assetPath = 'soundfiles/';
+	const allVoices = [];
+	let isPlaying = null;
 
-
-
-	/**** Sound.js functions ****/
-	function setSoundIDArray() {
-		$('.playSound').each(function() {
-			var id = $(this).attr('data-sound-id');
-			var sound = {};
-			sound.src = id + '.mp3';
-			sound.id = id;
-			sounds.push(sound);
+	// fill sound array with all available voices
+	function getAllVoices() {
+		const Voices = document.querySelectorAll('.playSound');
+		Voices.forEach(voice => {
+			const voiceSound = {};
+			const voiceID = voice.getAttribute('data-sound-id');
+			voiceSound.src = `${voiceID}.mp3`;
+			voiceSound.id = voiceID;
+			allVoices.push(voiceSound);
 		});
-	};
+	}
 
 	function loadSounds() {
-		createjs.Sound.registerSounds(sounds, assetPath, 1);
+		createjs.Sound.registerSounds(allVoices, assetPath, 1);
 	};
 
 	function playThisSound(soundToPlay) {
@@ -101,7 +100,7 @@ $(function() {
 
 	function init() {
 		createDomElements();
-		setSoundIDArray();
+		getAllVoices();
 		loadSounds();
 		bindEvents();
 		animateNameLabel();
@@ -110,4 +109,4 @@ $(function() {
 	$(document).ready(function() {
 		init();
 	});
-});
+})();
