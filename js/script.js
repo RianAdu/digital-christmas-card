@@ -2,24 +2,24 @@
 
 	//**** Global variables *****
 	const assetPath = 'soundfiles/';
-	const voicesArray = [];
-	let isPlaying = null;
+	const voiceArray = [];
+	var isPlaying = null;
 
 	//* fill sound array with all available voices
 	function getAllVoices() {
-		const Voices = document.querySelectorAll('.playSound');
-		Voices.forEach(voice => {
+		const voices = document.querySelectorAll('.playSound');
+		voices.forEach(voice => {
 			const voiceSound = {};
 			const voiceID = voice.getAttribute('data-sound-id');
 			voiceSound.src = `${voiceID}.mp3`;
 			voiceSound.id = voiceID;
-			voicesArray.push(voiceSound);
+			voiceArray.push(voiceSound);
 		});
 	}
 
 	//* creating sounds using create.js function
 	function loadSounds() {
-		createjs.Sound.registerSounds(voicesArray, assetPath, 1);
+		createjs.Sound.registerSounds(voiceArray, assetPath, 1);
 	};
 
 	function playThisSound(soundToPlay) {
@@ -33,9 +33,9 @@
 	//* Creating Headshot DOM elements
 	function setHeadShots() {
 		const headShotContainer = document.getElementById('headshot-container');
-		namesArray.sort(() => 0.5 - Math.random());
+		fcbSixers.sort(() => 0.5 - Math.random());
 
-		for (let person of namesArray) {
+		for (let person of fcbSixers) {
 			const headShot = Mustache.render(template, person);
 			const teamID = getTeamId();
 			const member = isTeamMember(person.id, teamID);
@@ -45,6 +45,7 @@
 
 	function getTeamId() {
 		const url = window.location.href;
+
 		if (url.indexOf('?') === -1) {
 			return false;
 		} else {
@@ -54,12 +55,9 @@
 	};
 
 	function isTeamMember(id, teamId) {
-		for (var x in teamObject) {
-			var allTeams = teamObject[x];
-
-			if (allTeams.hasOwnProperty(teamId)) {
-				var isMember = $.inArray(id, allTeams[teamId]);
-
+		for (let team of fcbSixTeams) {
+			if (team.hasOwnProperty(teamId)) {
+				const isMember = team[teamId].indexOf(id);
 				if (isMember !== -1) {
 					return true;
 				} else {
@@ -67,10 +65,9 @@
 				}
 			} else {
 				return false;
-				break;
 			}
 		}
-	};
+	}
 
 	function animateNameLabel() {
 		$('.headshot').hover(function() {

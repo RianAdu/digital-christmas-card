@@ -1,4 +1,4 @@
-const namesArray = [{
+const fcbSixers = [{
     "id": 1,
     "name": "Adrianna",
     "filename": "Adrianna"
@@ -420,7 +420,7 @@ const namesArray = [{
   }
 ];
 
-const teamObject = [{
+const fcbSixTeams = [{
   "c1": [42, 33, 10, 73, 69, 8],
   "c2": [16, 42, 5, 69, 22, 8, 33, 10],
   "c3": [34, 42, 30, 70, 64, 8, 33, 10],
