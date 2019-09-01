@@ -69,14 +69,23 @@
 		}
 	}
 
-	function animateNameLabel() {
-		$('.headshot').hover(function() {
-				$(this).next().addClass('show');
-			},
-			function() {
-				$(this).next().removeClass('show');
-			});
-	};
+	function showHeadshotLabel() {
+		const headshotContainer = document.getElementById('headshot-container');
+
+		//show headshot label on hover
+		headshotContainer.addEventListener('mouseover', e => {
+			if (e.target.classList.contains('headshot')) {
+				e.target.nextSibling.classList.add('show');
+			}
+		});
+		//hide headshot label
+		headshotContainer.addEventListener('mouseout', e => {
+			if (e.target.classList.contains('headshot')) {
+				e.target.nextSibling.classList.remove('show');
+			}
+		})
+
+	}
 
 	/**** Adding EventListeners *****/
 	function bindEvents() {
@@ -92,7 +101,7 @@
 		getAllVoices();
 		loadSounds();
 		bindEvents();
-		animateNameLabel();
+		showHeadshotLabel();
 	}
 
 	$(document).ready(function() {
