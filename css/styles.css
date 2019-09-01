@@ -15,6 +15,12 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+@media screen and (max-width: 480px) {
+  .cust-col-xxs-6 {
+    width: 50%;
+  }
+}
+
 .hero-bg {
   position: absolute;
   top: 0;
@@ -32,17 +38,40 @@ body {
 }
 
 .header__h1 {
-  font-size: 30px;
-  line-height: 40px;
+  font-size: 21px;
+  line-height: 26px;
   margin-top: 20px;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
+}
+
+@media screen and (min-width: 481px) {
+  .header__h1 {
+    font-size: 27px;
+    line-height: 35px;
+  }
+}
+
+@media screen and (min-width: 651px) {
+  .header__h1 {
+    font-size: 30px;
+    margin-top: 30px;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .header__h1 {
+    font-size: 30px;
+    line-height: 40px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+  }
 }
 
 .footer__snow {
   width: 100%;
 }
 
-.face {
+.headshot {
   display: block;
   position: relative;
   width: 137px;
@@ -53,13 +82,7 @@ body {
   transition: all 0.3s ease-in-out;
 }
 
-.face:hover {
-  -webkit-transform: scale(1.1);
-  transform: scale(1.1);
-  cursor: pointer;
-}
-
-.face-name {
+.headshot__name {
   opacity: 0;
   position: relative;
   display: block;
@@ -74,33 +97,13 @@ body {
   transition: all 0.4s ease-in-out;
 }
 
-.face-name.show {
+.headshot__name:hover {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+.headshot__name.show {
   opacity: 1;
-}
-
-@media (max-width: 768px) {
-  header h1 {
-    font-size: 30px;
-    margin-top: 30px;
-  }
-}
-
-@media (max-width: 650px) {
-  header h1 {
-    font-size: 27px;
-    line-height: 35px;
-  }
-}
-
-@media (max-width: 480px) {
-  .col-custom-small {
-    width: 50%;
-  }
-  header h1 {
-    font-size: 21px;
-    line-height: 26px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-  }
 }
 /*# sourceMappingURL=styles.css.map */

@@ -20,6 +20,13 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+// custom column for mobile
+.cust-col-xxs-6 {
+  @media screen and (max-width: 480px) {
+    width: 50%;
+  }
+}
+
 .hero-bg {
   position: absolute;
   top: 0;
@@ -38,10 +45,27 @@ body {
   }
 
   &__h1 {
-    font-size: 30px;
-    line-height: 40px;
+    font-size: 21px;
+    line-height: 26px;
     margin-top: 20px;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
+
+    @media screen and (min-width:481px) {
+      font-size: 27px;
+      line-height: 35px;
+    }
+
+    @media screen and (min-width: 651px) {
+      font-size: 30px;
+      margin-top: 30px;
+    }
+
+    @media screen and (min-width: 769px) {
+      font-size: 30px;
+      line-height: 40px;
+      margin-top: 20px;
+      margin-bottom: 40px;
+    }
   }
 }
 
@@ -52,7 +76,7 @@ body {
 }
 
 
-.face {
+.headshot {
   display: block;
   position: relative;
   width: 137px;
@@ -62,56 +86,28 @@ body {
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
 
-}
+  &__name {
+    opacity: 0;
+    position: relative;
+    display: block;
+    font-size: 14px;
+    background: $label-blue;
+    padding: 8px;
+    width: 130px;
+    margin: auto;
+    border-radius: 4px;
+    z-index: 2;
+    -webkit-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
 
-.face:hover {
-  -webkit-transform: scale(1.1);
-  transform: scale(1.1);
-  cursor: pointer;
-}
+    &:hover {
+      -webkit-transform: scale(1.1);
+      transform: scale(1.1);
+      cursor: pointer;
+    }
 
-.face-name {
-  opacity: 0;
-  position: relative;
-  display: block;
-  font-size: 14px;
-  background: $label-blue;
-  padding: 8px;
-  width: 130px;
-  margin: auto;
-  border-radius: 4px;
-  z-index: 2;
-  -webkit-transition: all 0.4s ease-in-out;
-  transition: all 0.4s ease-in-out;
-}
-
-.face-name.show {
-  opacity: 1;
-}
-
-@media(max-width:768px) {
-  header h1 {
-    font-size: 30px;
-    margin-top: 30px;
-  }
-}
-
-@media(max-width: 650px) {
-  header h1 {
-    font-size: 27px;
-    line-height: 35px;
-  }
-}
-
-@media(max-width:480px) {
-  .col-custom-small {
-    width: 50%;
-  }
-
-  header h1 {
-    font-size: 21px;
-    line-height: 26px;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    &.show {
+      opacity: 1;
+    }
   }
 }

@@ -36,7 +36,7 @@ $(function() {
 
 	/**** Create DOM elements functions ****/
 	function createDomElements() {
-		var faceContainer = $('#face-container');
+		var faceContainer = $('#headshot-container');
 		names.sort(function() {
 			return 0.5 - Math.random()
 		});
@@ -82,7 +82,7 @@ $(function() {
 	};
 
 	function animateNameLabel() {
-		$('.face').hover(function() {
+		$('.headshot').hover(function() {
 				$(this).next().addClass('show');
 			},
 			function() {
