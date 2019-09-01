@@ -1,11 +1,11 @@
 (function IIFE() {
 
-	/**** Global variables *****/
+	//**** Global variables *****
 	const assetPath = 'soundfiles/';
-	const allVoices = [];
+	const voicesArray = [];
 	let isPlaying = null;
 
-	// fill sound array with all available voices
+	//* fill sound array with all available voices
 	function getAllVoices() {
 		const Voices = document.querySelectorAll('.playSound');
 		Voices.forEach(voice => {
@@ -13,41 +13,35 @@
 			const voiceID = voice.getAttribute('data-sound-id');
 			voiceSound.src = `${voiceID}.mp3`;
 			voiceSound.id = voiceID;
-			allVoices.push(voiceSound);
+			voicesArray.push(voiceSound);
 		});
 	}
 
+	//* creating sounds using create.js function
 	function loadSounds() {
-		createjs.Sound.registerSounds(allVoices, assetPath, 1);
+		createjs.Sound.registerSounds(voicesArray, assetPath, 1);
 	};
 
 	function playThisSound(soundToPlay) {
-		//var soundToPlay = $(this).attr('data-sound-id');
-
 		if (isPlaying !== null) {
 			isPlaying.stop();
 		}
-		//create instance when playing sound to get access to stop() function. See Global variables
+		//* create instance when playing sound to get access to stop() function. See Global variables
 		isPlaying = createjs.Sound.play(soundToPlay);
 	};
 
+	//* Creating Headshot DOM elements
+	function setHeadShots() {
+		const headShotContainer = document.getElementById('headshot-container');
+		namesArray.sort(() => 0.5 - Math.random());
 
-
-	/**** Create DOM elements functions ****/
-	function createDomElements() {
-		var faceContainer = $('#headshot-container');
-		names.sort(function() {
-			return 0.5 - Math.random()
-		});
-
-		for (var i in names) {
-			var person = names[i];
-			var face = Mustache.render(template, person);
-			var teamId = getTeamId();
-			var member = isTeamMember(person.id, teamId);
-			member ? faceContainer.prepend(face) : faceContainer.append(face);
+		for (let person of namesArray) {
+			const headShot = Mustache.render(template, person);
+			const teamID = getTeamId();
+			const member = isTeamMember(person.id, teamID);
+			member ? headShotContainer.insertAdjacentHTML('afterbegin', headShot) : headShotContainer.insertAdjacentHTML('beforeend', headShot);
 		}
-	};
+	}
 
 	function getTeamId() {
 		var url = window.location.href;
@@ -99,7 +93,7 @@
 	};
 
 	function init() {
-		createDomElements();
+		setHeadShots();
 		getAllVoices();
 		loadSounds();
 		bindEvents();

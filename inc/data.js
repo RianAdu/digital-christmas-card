@@ -1,4 +1,4 @@
-const names = [{
+const namesArray = [{
     "id": 1,
     "name": "Adrianna",
     "filename": "Adrianna"
