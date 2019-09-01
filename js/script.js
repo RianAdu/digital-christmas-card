@@ -1,5 +1,4 @@
 (function IIFE() {
-
 	//**** Global variables *****
 	const assetPath = 'soundfiles/';
 	const voiceArray = [];
@@ -8,6 +7,7 @@
 	//* fill sound array with all available voices
 	function getAllVoices() {
 		const voices = document.querySelectorAll('.playSound');
+
 		voices.forEach(voice => {
 			const voiceSound = {};
 			const voiceID = voice.getAttribute('data-sound-id');
@@ -31,21 +31,20 @@
 	};
 
 	//* Creating Headshot DOM elements
-	function setHeadShots() {
-		const headShotContainer = document.getElementById('headshot-container');
+	function setHeadshots() {
+		const headshotContainer = document.getElementById('headshot-container');
 		fcbSixers.sort(() => 0.5 - Math.random());
 
 		for (let person of fcbSixers) {
-			const headShot = Mustache.render(template, person);
+			const headshot = Mustache.render(template, person);
 			const teamID = getTeamId();
 			const member = isTeamMember(person.id, teamID);
-			member ? headShotContainer.insertAdjacentHTML('afterbegin', headShot) : headShotContainer.insertAdjacentHTML('beforeend', headShot);
+			member ? headshotContainer.insertAdjacentHTML('afterbegin', headshot) : headshotContainer.insertAdjacentHTML('beforeend', headshot);
 		}
 	}
 
 	function getTeamId() {
 		const url = window.location.href;
-
 		if (url.indexOf('?') === -1) {
 			return false;
 		} else {
@@ -69,9 +68,9 @@
 		}
 	}
 
-	function showHeadshotLabel() {
+	// Function uses event deligation
+	function showLabel() {
 		const headshotContainer = document.getElementById('headshot-container');
-
 		//show headshot label on hover
 		headshotContainer.addEventListener('mouseover', e => {
 			if (e.target.classList.contains('headshot')) {
@@ -84,27 +83,27 @@
 				e.target.nextSibling.classList.remove('show');
 			}
 		})
-
 	}
 
-	/**** Adding EventListeners *****/
-	function bindEvents() {
-
-		$('.playSound').on('click', function() {
-			var soundId = $(this).data('sound-id');
-			playThisSound(soundId);
+	function playVoice() {
+		const headshotContainer = document.getElementById('headshot-container');
+		headshotContainer.addEventListener('click', e => {
+			if (e.target.classList.contains('playSound')) {
+				let soundId = e.target.getAttribute('data-sound-id');
+				playThisSound(soundId);
+			}
 		});
-	};
+	}
 
 	function init() {
-		setHeadShots();
+		setHeadshots();
 		getAllVoices();
 		loadSounds();
-		bindEvents();
-		showHeadshotLabel();
+		playVoice();
+		showLabel();
 	}
 
-	$(document).ready(function() {
+	document.addEventListener('DOMContentLoaded', () => {
 		init();
 	});
 })();
