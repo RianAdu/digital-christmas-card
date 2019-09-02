@@ -1,4 +1,4 @@
-# FCB/SIX Digital Christmas Card
+# Digital Christmas Card
 In 2017 FCB/SIX was thinking of a way to thank their clients for the successful year.
 The creative team came up with a funny idea and I turned the idea into real world code.
 
