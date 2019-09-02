@@ -38,7 +38,6 @@ Thumbs.db
 .tmp
 
 ######################
-img/**/headshots/*
-img/**/page_elements/*
+img/**
 soundfiles/*
 css/styles.css.map
