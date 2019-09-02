@@ -4,7 +4,7 @@ The creative team came up with a funny idea and I turned the idea into real worl
 
 I built a website that would not only have the face of every FCB/SIX employee but also when the user clicks on a face would play a sound file that was pre-recoreded and each employee would say what they like about the christmas time.
 
-**I have refactored the jQuery Code into ES6 Vanilla JavaScript which is reflected in the commits of this repo**
+**I have refactored the jQuery Code into ES6 Vanilla JavaScript which is reflected in the commits**
 
 ### Technologies
 * HTML5
